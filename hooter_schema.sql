@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS `posts`, `users`;
+DROP TABLE IF EXISTS `posts`, `users`, `hashtags`, `post_hashtag`;
 CREATE TABLE `posts` (
   `post_id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(150) COLLATE utf8mb4_bin DEFAULT NULL,
@@ -22,4 +22,22 @@ CREATE TABLE `users` (
   `followers_count` int(10) DEFAULT NULL,
   `posts_count` int(10) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+CREATE TABLE `hashtags` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` int(11) DEFAULT NULL,
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+CREATE TABLE `post_hashtag` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `hashtag_id` int(11) unsigned DEFAULT NULL,
+  `post_id` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `hashtag_id` (`hashtag_id`),
+  KEY `post_id` (`post_id`),
+  CONSTRAINT `post_hashtag_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `posts` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `post_hashtag_ibfk_1` FOREIGN KEY (`hashtag_id`) REFERENCES `hashtags` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
