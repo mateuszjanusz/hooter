@@ -9,7 +9,10 @@ class Post_Table extends Table {
 	}
 
 	public function getAllPosts () {
-		$entrySQL = "SELECT post_text, user_id  FROM posts";
+		$entrySQL = "SELECT p.post_text AS post_text, p.date_created, p.image, p.reply_id, u.username AS username
+		FROM posts p
+		INNER JOIN users u ON p.user_id";
+		
 		$statement = $this->makeStatement( $entrySQL );
 		return $statement;
 	}

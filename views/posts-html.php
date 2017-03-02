@@ -8,7 +8,7 @@ while ( $post = $posts->fetchObject() ) {
 	//create a list element <li> for each of the entries
 	$postsHTML .= 
 	"<li>
-        <h2>$post->user_id</h2>
+        <h3>$post->username</h3>
         <div>$post->post_text</p>
 	</li>"; 
 }
