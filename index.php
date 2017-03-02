@@ -9,10 +9,11 @@
 	$title = "Hooter";
 	$css="css/bootstrap.min.css";
 
-	echo "Hello";
+	include_once "templates/header.php";
 
-	// include_once "templates/header.php";
-	// include_once "templates/admin/admin-navigation.php";
+	echo "Hello";
+	include_once "templates/footer.php";
+	
 	// $navigation = isset( $_GET['page'] );
 	// if ( $navigation ) {
 	//         $contrl = $_GET['page']; //load corresponding controller
