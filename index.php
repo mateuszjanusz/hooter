@@ -19,11 +19,9 @@
 	$router = isset( $_GET['page'] );
 
 	if($router){
-		$contrl = $_GET['page']; //load corresponding controller
+		$contrl = $_GET['page']; 
 	} else {
-		// $contrl = 'new_post';
 		   $contrl = 'home';
-
 	}
 
 	include_once "controllers/$contrl.php"; //load the controller
