@@ -16,14 +16,14 @@
 
 	include_once "templates/header.php";
 
-	echo "<h2>Hooter</h2>";
-
 	$router = isset( $_GET['page'] );
 
 	if($router){
 		$contrl = $_GET['page']; //load corresponding controller
 	} else {
-		$contrl = 'post';
+		// $contrl = 'new_post';
+		   $contrl = 'home';
+
 	}
 
 	include_once "controllers/$contrl.php"; //load the controller

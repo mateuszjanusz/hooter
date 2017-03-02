@@ -1,7 +1,8 @@
 <?php
 
 $out = "
-</body>
+         </div>
+    </body>
 </html>
 ";
 
