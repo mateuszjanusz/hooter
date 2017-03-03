@@ -1,4 +1,4 @@
 # Hooter
 not a copy of Twitter ( ͡° ͜ʖ ͡°)
 
-<img src="https://raw.githubusercontent.com/mateuszjanusz/decide/master/logo.png"/>
+<img src="https://raw.githubusercontent.com/mateuszjanusz/hooter/master/logo.png"/>
