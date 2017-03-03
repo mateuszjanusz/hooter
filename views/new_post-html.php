@@ -1,8 +1,9 @@
 <?php
-$out = "<form action='index.php?page=home' method='POST' class='form-inline'>
+$out = "<form action='index.php?page=home' method='POST' class='form-horizontal'>
       <div class='form-group'>
         <label for='post'>Create a post</label>
-        <input type='text' class='form-control' name='post'>
+        <textarea class='form-control' rows='2' name='post'></textarea>
+        <input type='file' id='image'>
       </div>
       <button type='submit' name='action' class='btn btn-default'>Post</button>
     </form>";
