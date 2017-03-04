@@ -16,6 +16,15 @@ class Post_Table extends Table {
 		$statement = $this->makeStatement( $entrySQL );
 		return $statement;
 	}
+
+	public function updatePost ( $id, $text) {
+		$entrySQL = "UPDATE posts 
+                	SET post_text = ? 
+        	        WHERE post_id = ?";
+		$data = array( $text, $id );
+		$statement = $this->makeStatement( $entrySQL, $data );
+		return $statement;
+	}
      
 }
 
