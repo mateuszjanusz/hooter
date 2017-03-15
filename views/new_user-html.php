@@ -4,7 +4,7 @@ if( isset($registerFormMessage) === false ) {
     $registerFormMessage = "";
 }
 
-$out = "<form class='form-horizontal' action='index.php?page=users' method='POST'>
+$out = "<form class='form-horizontal' action='index.php?page=new_user' method='POST'>
   <fieldset>
     <div id='legend'>
       <legend class=''>Register</legend>
@@ -13,7 +13,7 @@ $out = "<form class='form-horizontal' action='index.php?page=users' method='POST
       <!-- Username -->
       <label class='control-label'  for='username'>Username</label>
       <div class='controls'>
-        <input type='text' id='username' name='username' placeholder='' class='input-xlarge'>
+        <input type='text' name='username' class='input-xlarge'>
       </div>
     </div>
  
@@ -21,7 +21,7 @@ $out = "<form class='form-horizontal' action='index.php?page=users' method='POST
       <!-- E-mail -->
       <label class='control-label' for='email'>Email</label>
       <div class='controls'>
-        <input type='text' id='email' name='email' placeholder='' class='input-xlarge'>
+        <input type='email' name='email' class='input-xlarge'>
       </div>
     </div'
  
@@ -29,15 +29,15 @@ $out = "<form class='form-horizontal' action='index.php?page=users' method='POST
       <!-- Password-->
       <label class='control-label' for='password'>Password</label>
       <div class='controls'>
-        <input type='password' id='password' name='password' placeholder='' class='input-xlarge'>
+        <input type='password' name='password' class='input-xlarge'>
       </div>
     </div>
  
     <div class='control-group'>
       <!-- Password -->
-      <label class='control-label'  for='password_confirm'>Password'(Confirm)</label>
+      <label class='control-label' for='password_confirm'>Password'(Confirm)</label>
       <div class='controls'>
-        <input type='password' id='password_confirm' name='password_confirm' placeholder='' class='input-xlarge'>
+        <input type='password' name='password_confirm' class='input-xlarge'>
       </div>
     </div>
  
@@ -49,7 +49,7 @@ $out = "<form class='form-horizontal' action='index.php?page=users' method='POST
     </div>
     <p id='register-form-message'>$registerFormMessage</p>
   </fieldset>
-</form>>";
+</form>";
     
 echo $out;
 ?>
