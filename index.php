@@ -18,10 +18,18 @@
 
 	$router = isset( $_GET['page'] );
 
-	if($router){
-		$contrl = $_GET['page']; 
+	if(!$router){
+		$contrl = 'home'; // display home page
 	} else {
-		   $contrl = 'home';
+		$contrl = $_GET['page']; // else requested page
+		switch ($contrl) {
+			
+				case 'new_user' :
+						include 'controllers/new_user.php';
+						break;
+				default :
+				    // include 'views/404.php';
+		}
 	}
 
 	include_once "controllers/$contrl.php"; //load the controller

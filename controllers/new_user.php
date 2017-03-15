@@ -7,10 +7,12 @@ if( $registerUser ) {
     $newEmail = $_POST['email'];
     $newUsername = $_POST['username'];
     $newPassword = $_POST['password']; 
+    $newPasswordConfirm = $_POST['password_confirm']; 
+
        
     $userTable = new User_Table($db);
     try {
-        $userTable->registerUser( $newEmail, $newUsername,  $newPassword );
+        $userTable->registerUser( $newEmail, $newUsername,  $newPassword, $newPasswordConfirm );
         $registerFormMessage = "New user created!";
     } catch ( Exception $e ) {
         $registerFormMessage = $e->getMessage();

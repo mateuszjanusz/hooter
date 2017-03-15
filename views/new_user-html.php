@@ -35,7 +35,7 @@ $out = "<form class='form-horizontal' action='index.php?page=new_user' method='P
  
     <div class='control-group'>
       <!-- Password -->
-      <label class='control-label' for='password_confirm'>Password'(Confirm)</label>
+      <label class='control-label' for='password_confirm'>Confirm password</label>
       <div class='controls'>
         <input type='password' name='password_confirm' class='input-xlarge'>
       </div>
@@ -47,7 +47,7 @@ $out = "<form class='form-horizontal' action='index.php?page=new_user' method='P
         <button type='submit' name='registerUser' class='btn btn-success'>Register</button>
       </div>
     </div>
-    <p id='register-form-message'>$registerFormMessage</p>
+    <p id='register-form-message' class='help-block'>$registerFormMessage</p>
   </fieldset>
 </form>";
     
