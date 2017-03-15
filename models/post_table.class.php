@@ -2,29 +2,36 @@
 class Post_Table extends Table {
 
 	public function saveEntry ( $user, $entry ) {
-		$entrySQL = "INSERT INTO posts (user_id, post_text) VALUES (?, ?)";
+		$sql = "INSERT INTO posts (user_id, post_text) VALUES (?, ?)";
 		$formData = array( $user, $entry ); 
-		$entryStatement = $this->makeStatement( $entrySQL, $formData );
+		$entryStatement = $this->makeStatement( $sql, $formData );
 	//	return $this->db->lastInsertId();
 	}
 
 	public function getAllPosts () {
-		$entrySQL = "SELECT p.post_text AS post_text, p.date_created, p.image, p.reply_id, u.username AS username
+		$sql = "SELECT p.post_text AS post_text, p.post_id AS post_id, p.date_created, p.image, p.reply_id, u.username AS username
 		FROM posts p
 		INNER JOIN users u ON p.user_id";
 		
-		$statement = $this->makeStatement( $entrySQL );
+		$statement = $this->makeStatement( $sql );
 		return $statement;
 	}
 
 	public function updatePost ( $id, $text) {
-		$entrySQL = "UPDATE posts 
+		$sql = "UPDATE posts 
                 	SET post_text = ? 
         	        WHERE post_id = ?";
 		$data = array( $text, $id );
-		$statement = $this->makeStatement( $entrySQL, $data );
+		$statement = $this->makeStatement( $sql, $data );
 		return $statement;
 	}
+
+	public function deletePost ( $id ) {
+		$sql = "DELETE FROM posts WHERE post_id = ?";
+		$data = array( $id );
+		$statement = $this->makeStatement( $sql, $data );
+
+	}	
      
 }
 
