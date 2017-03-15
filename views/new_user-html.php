@@ -1,5 +1,10 @@
 <?php
-$out = "<form class='form-horizontal' action='' method='POST'>
+
+if( isset($registerFormMessage) === false ) {
+    $registerFormMessage = "";
+}
+
+$out = "<form class='form-horizontal' action='index.php?page=users' method='POST'>
   <fieldset>
     <div id='legend'>
       <legend class=''>Register</legend>
@@ -14,7 +19,7 @@ $out = "<form class='form-horizontal' action='' method='POST'>
  
     <div class='control-group'>
       <!-- E-mail -->
-      <label class='control-label' for='email'>E-mail</label>
+      <label class='control-label' for='email'>Email</label>
       <div class='controls'>
         <input type='text' id='email' name='email' placeholder='' class='input-xlarge'>
       </div>
@@ -39,9 +44,10 @@ $out = "<form class='form-horizontal' action='' method='POST'>
     <div class='control-group'>
       <!-- Button -->
       <div class='controls'>
-        <button class='btn btn-success'>Register</button>
+        <button type='submit' name='registerUser' class='btn btn-success'>Register</button>
       </div>
     </div>
+    <p id='register-form-message'>$registerFormMessage</p>
   </fieldset>
 </form>>";
     
