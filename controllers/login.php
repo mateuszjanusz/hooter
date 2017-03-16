@@ -8,7 +8,7 @@ if( $loginFormSubmitted ) {
     $userTable = new User_Table( $db );
     try {
         $userTable->auth( $email, $password );
-        $user->login();
+        $user->login('2');
     } catch ( Exception $e ) {
         echo $e->getMessage();
     }

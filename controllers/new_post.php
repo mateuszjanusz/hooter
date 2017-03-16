@@ -7,7 +7,7 @@ $postSubmitted = isset( $_POST['action'] );
 
 if ( $postSubmitted ) {  
      $entry = $_POST['post'];
-     $user = '1';
+     $user = $_SESSION['user_id'];
      $postTable->saveEntry( $user, $entry );    
 }
 

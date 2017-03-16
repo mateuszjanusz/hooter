@@ -4,51 +4,48 @@ if( isset($registerFormMessage) === false ) {
     $registerFormMessage = "";
 }
 
-$out = "<form class='form-horizontal' action='index.php?page=new_user' method='POST'>
-  <fieldset>
+$out = "<form method='POST' class='form-horizontal' action='index.php?page=new_user'>
     <div id='legend'>
       <legend class=''>Register</legend>
     </div>
-    <div class='control-group'>
-      <!-- Username -->
-      <label class='control-label'  for='username'>Username</label>
-      <div class='controls'>
-        <input type='text' name='username' class='input-xlarge'>
+
+    <div class='form-group'>
+      <label for='username' class='col-sm-2 control-label'>Username</label>
+      <div class='col-sm-8'>
+        <input type='text' class='form-control' name='username'>
       </div>
     </div>
  
-    <div class='control-group'>
-      <!-- E-mail -->
-      <label class='control-label' for='email'>Email</label>
-      <div class='controls'>
-        <input type='email' name='email' class='input-xlarge'>
-      </div>
-    </div'
- 
-    <div class='control-group'>
-      <!-- Password-->
-      <label class='control-label' for='password'>Password</label>
-      <div class='controls'>
-        <input type='password' name='password' class='input-xlarge'>
+    <div class='form-group'>
+      <label for='email' class='col-sm-2 control-label'>Email</label>
+      <div class='col-sm-8'>
+        <input type='email' class='form-control' name='email'>
       </div>
     </div>
  
-    <div class='control-group'>
-      <!-- Password -->
-      <label class='control-label' for='password_confirm'>Confirm password</label>
-      <div class='controls'>
-        <input type='password' name='password_confirm' class='input-xlarge'>
+    <div class='form-group'>
+      <label for='password' class='col-sm-2 control-label'>Password</label>
+      <div class='col-sm-8'>
+        <input type='password' class='form-control' name='password'>
       </div>
     </div>
  
-    <div class='control-group'>
+    <div class='form-group'>
+      <label for='password_confirm' class='col-sm-2 control-label'>Confirm password</label>
+      <div class='col-sm-8'>
+        <input type='password' class='form-control' name='password_confirm'>
+      </div>
+    </div>
+ 
+    <div class='form-group'>
       <!-- Button -->
-      <div class='controls'>
+      <div class='col-sm-offset-2 col-sm-10'>
         <button type='submit' name='registerUser' class='btn btn-success'>Register</button>
       </div>
     </div>
+
     <p id='register-form-message' class='help-block'>$registerFormMessage</p>
-  </fieldset>
+
 </form>";
     
 echo $out;

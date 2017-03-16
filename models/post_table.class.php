@@ -5,11 +5,11 @@ class Post_Table extends Table {
 		$sql = "INSERT INTO posts (user_id, post_text) VALUES (?, ?)";
 		$formData = array( $user, $entry ); 
 		$entryStatement = $this->makeStatement( $sql, $formData );
-	//	return $this->db->lastInsertId();
+		// return $this->db->lastInsertId();
 	}
 
 	public function getAllPosts () {
-		$sql = "SELECT p.post_text AS post_text, p.post_id AS post_id, p.date_created, p.image, p.reply_id, u.username AS username
+		$sql = "SELECT p.post_text AS post_text, p.post_id AS post_id, p.date_created, p.image, p.reply_id, u.user_id AS user_id, u.username AS username
 		FROM posts p
 		INNER JOIN users u ON p.user_id";
 		

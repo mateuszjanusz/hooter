@@ -11,6 +11,7 @@ while ( $post = $posts->fetchObject() ) {
         <div class='panel-heading'>
             <h4>$post->username <small> $post->date_created</small></h4>
             <form method='post' action='index.php?page=home' id='post_editor'>
+                <input type='hidden' name='user_id' value='$post->user_id' />
                 <input type='hidden' name='post_id' value='$post->post_id' />
                 <button type='submit' class='pull-right' name='delete'>
                     <span class='glyphicon glyphicon-trash'></span>
