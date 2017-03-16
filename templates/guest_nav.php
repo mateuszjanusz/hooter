@@ -5,9 +5,8 @@ $out = "
             <img alt='Hooter' src='./logo.png'>
 </a>
   <li role='presentation'><a href='?page=home'>Home</a></li>
-  <li role='presentation'><a href=''>Profile</a></li>
-  <li role='presentation'><a href='#'>Trends</a></li>
-  <li role='presentation'><a href='?page=logout'>Logout</a></li>
+  <li role='presentation'><a href='?page=new_user'>Sign up</a></li>
+  <li role='presentation'><a href='?page=login'>Login</a></li>
 </ul>";
 
 
@@ -23,4 +22,3 @@ $out .= "</div>
 echo $out;
 
 ?>
-

@@ -16,10 +16,13 @@ class User {
 	
 	public function login () {
         $_SESSION['logged_in'] = true;
+        header('Location: index.php'); exit(); //redirect to home page
 	}
  
 	public function logout () {
         $_SESSION['logged_in'] = false;
+        header('Location: index.php'); exit(); //redirect to home page
+
 	}
  
 }

@@ -11,7 +11,7 @@ class Table {
 		try{
 			$statement->execute( $data );
 		} catch (Exception $e){
-		    $msg = "<p>You tried to run this sql: $entrySQL<p>
+		    $msg = "<p>You tried to run this sql: $sql<p>
 			    <p>Exception: $e</p>";
 		    trigger_error($msg);
 		}

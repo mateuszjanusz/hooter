@@ -13,8 +13,17 @@
 
 	$title = "Hooter";
 	$css="css/bootstrap.min.css";
-
 	include_once "templates/header.php";
+	include_once "models/Table.class.php";
+	include_once "models/User.class.php";
+	$user = new User();
+
+	//nav bar
+	if (!$user->isLoggedIn() ) {
+		include_once "templates/guest_nav.php";
+	} else {
+		include_once "templates/nav.php";
+	}
 
 	$router = isset( $_GET['page'] );
 
@@ -23,9 +32,14 @@
 	} else {
 		$contrl = $_GET['page']; // else requested page
 		switch ($contrl) {
-			
 				case 'new_user' :
 						include 'controllers/new_user.php';
+						break;
+				case 'login' :
+						include 'controllers/login.php';
+						break;
+                case 'logout' :
+						include 'controllers/logout.php';
 						break;
 				default :
 				    // include 'views/404.php';

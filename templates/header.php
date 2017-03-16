@@ -11,4 +11,5 @@ $out = "<!DOCTYPE html>
         <div class='container'>";
 
 echo $out;
+
 ?>

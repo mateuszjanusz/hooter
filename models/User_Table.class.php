@@ -1,7 +1,22 @@
 <?php
 class User_Table extends Table {
 
+    public function auth( $email, $password ){
+        $sql = "SELECT email FROM users WHERE email = ? AND password = ?";
+	    $password = SHA1($password);
+        $data = array($email, $password);
+        $statement = $this->makeStatement( $sql, $data );
+        if ( $statement->rowCount() === 1 ) {
+            $out = true;
+        } else {
+            $loginProblem = new Exception( "The email or password you entered is incorrect." );
+            throw $loginProblem;
+        }
+        return $out;
+    }
+
 	public function registerUser ( $email, $username, $password, $password_confirm ) {
+        
         $this->checkPassword( $password, $password_confirm );
         $this->checkEmail( $email );
         $this->checkUsername( $username );
