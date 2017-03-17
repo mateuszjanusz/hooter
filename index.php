@@ -41,6 +41,9 @@
                 case 'logout' :
 						include 'controllers/logout.php';
 						break;
+				case 'profile' :
+						include 'controllers/profile.php';
+						break;
 				default :
 				    // include 'views/404.php';
 		}

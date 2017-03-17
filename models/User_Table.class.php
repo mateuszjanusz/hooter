@@ -2,7 +2,7 @@
 class User_Table extends Table {
 
     public function auth( $email, $password ){
-        $sql = "SELECT email FROM users WHERE email = ? AND password = ?";
+        $sql = "SELECT email, user_id FROM users WHERE email = ? AND password = ?";
 	    $password = SHA1($password);
         $data = array($email, $password);
         $statement = $this->makeStatement( $sql, $data );
@@ -53,6 +53,15 @@ class User_Table extends Table {
             $e = new Exception("Sorry, the name: '$username' is already registered.");
             throw $e;
         } 
+    }
+
+    public function getUserDetails($id){
+        if(empty($id))
+            throw new Exception("No user ID provided"); 
+        $sql = "SELECT username, email, date_created, location, profile_image, followers_count, posts_count FROM users WHERE user_id = ?";
+        $data = array($id);  
+        $details = $this->makeStatement( $sql, $data );
+		return $details;  
     }
 }
 
