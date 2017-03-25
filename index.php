@@ -2,7 +2,7 @@
 	error_reporting( E_ALL );
 	ini_set( "display_errors", 1 );
 
-	include_once "./config.php"; 
+	include_once "./config.php";
 
 	try {
 	$db = new PDO( $dbInfo, $dbUser, $dbPassword );
@@ -38,8 +38,11 @@
 				case 'login' :
 						include 'controllers/login.php';
 						break;
-                case 'logout' :
+        case 'logout' :
 						include 'controllers/logout.php';
+						break;
+				case 'search' :
+						include 'controllers/search.php';
 						break;
 				case 'profile' :
 						include 'controllers/profile.php';

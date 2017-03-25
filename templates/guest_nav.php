@@ -1,7 +1,7 @@
 <?php
 $out = "
 <ul class='nav nav-pills'>
-<a class='navbar-brand' href='#'>
+<a class='navbar-brand' href='?page=home'>
             <img alt='Hooter' src='./logo.png'>
 </a>
   <li role='presentation'><a href='?page=home'>Home</a></li>

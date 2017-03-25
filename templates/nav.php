@@ -1,15 +1,15 @@
 <?php
 $out = "
 <ul class='nav nav-pills'>
-<a class='navbar-brand' href='#'>
+<a class='navbar-brand' href='?page=home'>
             <img alt='Hooter' src='./logo.png'>
 </a>
   <li role='presentation'><a href='?page=home'>Home</a></li>
   <li role='presentation'><a href='?page=profile'>Profile</a></li>
   <li role='presentation'><a href='#'>Trends</a></li>
   <li role='presentation'><a href='?page=logout'>Logout</a></li>
+  <li role='presentation'><a href='?page=search'>Search</a></li>
 </ul>";
-
 
 $out .= "<div class='row'>
 <div class='col-md-2'>";
@@ -23,4 +23,3 @@ $out .= "</div>
 echo $out;
 
 ?>
-

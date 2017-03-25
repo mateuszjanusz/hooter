@@ -7,7 +7,7 @@ $out = "<div id='legend'>
   <div class='form-group'>
     <label for='email' class='col-sm-2 control-label'>Email</label>
     <div class='col-sm-8'>
-      <input type='email'' class='form-control' name='email'required />
+      <input type='email'' class='form-control' name='email' required />
     </div>
   </div>
   <div class='form-group'>
