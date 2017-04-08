@@ -7,7 +7,6 @@ $posts = $postTable->getAllPosts();
 $buttonDelete= isset( $_POST['delete'] );
 
 if ( $buttonDelete ) { 
-     echo "<h1>clicked</h1>"; 
      $id = $_POST['post_id'];
      $postTable->deletePost( $id );
 }
