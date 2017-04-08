@@ -33,12 +33,12 @@ class Post_Table extends Table {
 
 	}
 
-	public function searchPosts($keyword){
+	public function searchPosts($field, $keyword){
 		$sql = "SELECT p.post_text AS post_text, p.post_id AS post_id, p.date_created, p.image, p.reply_id, 
 		u.user_id AS user_id, u.username AS username 
 		FROM posts p
 		INNER JOIN users u ON p.user_id 
-		WHERE post_text LIKE '%$keyword%'";
+		WHERE $field LIKE '%$keyword%'";
 		$statement = $this->makeStatement( $sql );
 		return $statement;
 	}

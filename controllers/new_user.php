@@ -7,6 +7,7 @@ if( $registerUser ) {
     if(!empty($_POST['email'])){
         $newEmail = $_POST['email'];
         $newUsername = $_POST['username'];
+        $newUsername = strip_tags($newUsername); //remove all html, xml or php tags
         $newPassword = $_POST['password']; 
         $newPasswordConfirm = $_POST['password_confirm']; 
         $userTable = new User_Table($db);
