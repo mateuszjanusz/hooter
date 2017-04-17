@@ -7,6 +7,11 @@ class Post_Table extends Table {
 		$entryStatement = $this->makeStatement( $sql, $formData );
 		// return $this->db->lastInsertId();
 	}
+	public function newPostWithImage($user, $entry, $image) {
+		$sql = "INSERT INTO posts (user_id, post_text, image) VALUES (?, ?, ?)";
+		$formData = array( $user, $entry, $image );
+		$entryStatement = $this->makeStatement( $sql, $formData );
+	}
 
 	public function getAllPosts() {
 		$sql = "SELECT p.post_id, p.post_text, p.date_created, p.image, p.reply_id, p.user_id, u.username
