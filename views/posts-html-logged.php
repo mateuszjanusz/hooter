@@ -6,6 +6,7 @@ if ( $postsFound === false ) {
 }
 $postsHTML = "<ul id='posts'>";
 while ( $post = $posts->fetchObject() ) {
+    //echo var_dump($post);
 	//create a list element <li> for each of the entries
 	$postsHTML .=
 	"<li class='list-group-item'><div class='panel panel-default'>
