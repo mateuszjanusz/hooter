@@ -15,13 +15,12 @@ class User_Table extends Table {
         return $out;
     }
 
-    // public function getUserId($email, $password){
-    //     $sql = "SELECT user_id FROM users WHERE email = ? AND password = ?";
-    //     $password = SHA1($password);
-    //     $data = array($email, $password);
-    //     $id = $this->makeStatement( $sql, $data );
-	// 	return $id;
-    // }
+    public function getUserId($email){
+        $sql = "SELECT user_id FROM users WHERE email = ?";
+        $data = array($email);
+        $id = $this->makeStatement( $sql, $data );
+		return $id;
+    }
 
 	public function registerUser ( $email, $username, $password, $password_confirm ) {
 

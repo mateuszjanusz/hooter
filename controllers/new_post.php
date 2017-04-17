@@ -8,7 +8,7 @@ $postSubmitted = isset( $_POST['action'] );
 if ( $postSubmitted ) {  
      $entry = $_POST['post'];
      $user = $_SESSION['user_id'];
-     $postTable->saveEntry( $user, $entry );    
+     $postTable->newPost( $user, $entry );    
 }
 
 include_once "views/new_post-html.php";

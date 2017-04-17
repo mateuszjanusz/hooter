@@ -8,7 +8,8 @@ if( $loginFormSubmitted ) {
     $userTable = new User_Table( $db );
     try {
         $userTable->auth( $email, $password );
-        $user->login('2');
+        $id = $userTable->getUserId($email)->fetchObject()->user_id;
+        $user->login($id);
     } catch ( Exception $e ) {
         echo $e->getMessage();
     }
