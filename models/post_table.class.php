@@ -12,7 +12,8 @@ class Post_Table extends Table {
 		$sql = "SELECT p.post_id, p.post_text, p.date_created, p.image, p.reply_id, p.user_id, u.username
 		FROM posts p
 		INNER JOIN users u ON p.user_id
-		WHERE p.user_id = u.user_id";
+		WHERE p.user_id = u.user_id
+		ORDER BY p.date_created DESC";
 		$statement = $this->makeStatement( $sql );
 		return $statement;
 	}
