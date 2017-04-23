@@ -11,7 +11,7 @@
 			echo "<p>File's size is too large.</p>";
             exit;
 		} 
-        echo var_dump($file);
+        // echo var_dump($file);
         //to verify the file is a GIF, JPEG, or PNG
         $fileType = exif_imagetype($file['tmp_name']);
         $allowed = array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG);
@@ -36,8 +36,9 @@
             echo "<p>Unable to save file.</p>";
             exit;
         }
-
+        
         //set proper permissions on the new file
         chmod($dir . $name, 0644);
+        return $name; //return the final filename 
     }
 ?>

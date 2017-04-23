@@ -27,7 +27,7 @@ while ( $post = $posts->fetchObject() ) {
             <div class='panel-body'>
                 <h5>$post->post_text</h5>";
     if(!is_null($post->image)){
-        $postsHTML .= "<img src='uploads/$post->image'>";
+        $postsHTML .= "<img src='uploads/$post->image' width='400'>";
     }
     $postsHTML .= "</div>
         </div>

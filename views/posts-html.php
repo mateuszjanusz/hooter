@@ -13,11 +13,13 @@ while ( $post = $posts->fetchObject() ) {
             <h4>$post->username <small> $post->date_created</small></h4>";
     $postsHTML .="</div>
             <div class='panel-body'>
-                <h5>$post->post_text</h5>
-                <h6>$post->image</h6>
-            </div>
+                <h5>$post->post_text</h5>";
+    if(!is_null($post->image)){
+        $postsHTML .= "<img src='uploads/$post->image' width='400'>";
+    }
+    $postsHTML .= "</div>
         </div>
-        </li>";
+        </li>";         
 }
 
 $postsHTML .= "</ul>";
