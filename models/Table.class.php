@@ -5,9 +5,8 @@ class Table {
 	public function __construct ( $db ) {
 		$this->db = $db;
 	}
-     
-        public function makeStatement ( $sql, $data = NULL) {
-		$statement = $this->db->prepare( $sql );
+    public function makeStatement ( $sql, $data = NULL) {
+		$statement = $this->db->prepare( $sql ); //use of prepare to prevent sql injection
 		try{
 			$statement->execute( $data );
 		} catch (Exception $e){
