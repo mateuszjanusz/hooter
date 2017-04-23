@@ -25,14 +25,13 @@ while ( $post = $posts->fetchObject() ) {
     
     $postsHTML .="</div>
             <div class='panel-body'>
-                <h5>$post->post_text</h5>
-            </div>
+                <h5>$post->post_text</h5>";
+    if(!is_null($post->image)){
+        $postsHTML .= "<img src='uploads/$post->image'>";
+    }
+    $postsHTML .= "</div>
         </div>
-        </li>";
-        
-    // if($post->image){
-    //     "<h2>$post->image</h2>";
-    // }
+        </li>";         
 }
 $postsHTML .= "</ul>";
 
