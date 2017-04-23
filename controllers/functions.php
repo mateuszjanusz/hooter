@@ -7,13 +7,13 @@
             exit;
         }
         //to verify the size 
-        if($file['size'] > (1024000)){ //can't be larger than 1 MB
-			echo "<p>File\'s size is too large.</p>";
+        if($file['size'] > (2048000)){ //can't be larger than 2 MB
+			echo "<p>File's size is too large.</p>";
             exit;
 		} 
-
+        echo var_dump($file);
         //to verify the file is a GIF, JPEG, or PNG
-        $fileType = exif_imagetype($file['size']['tmp_name']);
+        $fileType = exif_imagetype($file['tmp_name']);
         $allowed = array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG);
         if (!in_array($fileType, $allowed)) {
             echo "<p>File extension is not allowed.</p>";
@@ -25,7 +25,7 @@
         //to avoid overwriting
         $i = 0;
         $parts = pathinfo($name);
-        while (file_exists(UPLOAD_DIR . $name)) {
+        while (file_exists($dir . $name)) {
             $i++;
             $name = $parts['filename'] . "-" . $i . "." . $parts['extension'];
         }

@@ -14,6 +14,7 @@ while ( $post = $posts->fetchObject() ) {
     $postsHTML .="</div>
             <div class='panel-body'>
                 <h5>$post->post_text</h5>
+                <h6>$post->image</h6>
             </div>
         </div>
         </li>";
