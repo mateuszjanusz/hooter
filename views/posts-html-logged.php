@@ -15,10 +15,16 @@ while ( $post = $posts->fetchObject() ) {
             <h4>$post->username <small> $post->date_created</small></h4>";
     //show delete button if available        
     if($_SESSION['user_id'] == $post->user_id){
-        $postsHTML .= "<form method='post' action='index.php?page=home' id='post_editor'>
+        $postsHTML .= "<form method='post' action='index.php?page=home'>
             <button type='submit' class='pull-right' name='delete'>
                 <input type='hidden' name='post_id' value='$post->post_id' />
                 <span class='glyphicon glyphicon-trash'></span>
+            </button>
+        </form>"; 
+        $postsHTML .= "<form method='post' action='index.php?page=home'>
+            <button type='submit' class='pull-right' name='edit'>
+                <input type='hidden' name='post_id' value='$post->post_id' />
+                <span class='glyphicon glyphicon-pencil'></span>
             </button>
         </form>"; 
     }

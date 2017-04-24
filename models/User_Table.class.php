@@ -65,11 +65,26 @@ class User_Table extends Table {
     public function getUserDetails($id){
         if(empty($id))
             throw new Exception("No user ID provided");
+            
         $sql = "SELECT username, email, date_created, location, profile_image, followers_count, posts_count
                 FROM users WHERE user_id = ?";
         $data = array($id);
         $details = $this->makeStatement( $sql, $data );
 		return $details;
+    }
+    
+    public function getUserPosts($id){
+        if(empty($id))
+            throw new Exception("No user ID provided");
+            
+        $sql = "SELECT p.post_id, p.post_text, p.date_created, p.image, p.reply_id, p.user_id, u.username
+		FROM posts p
+		INNER JOIN users u ON p.user_id
+		WHERE p.user_id = ?
+		ORDER BY p.date_created DESC";
+        $data = array($id);
+        $posts = $this->makeStatement( $sql, $data );
+		return $posts;
     }
 }
 
