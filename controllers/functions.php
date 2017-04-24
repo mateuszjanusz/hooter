@@ -41,4 +41,8 @@
         chmod($dir . $name, 0644);
         return $name; //return the final filename 
     }
+    
+    function editPost($id){
+        
+    }
 ?>

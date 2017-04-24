@@ -15,7 +15,7 @@ while ( $post = $posts->fetchObject() ) {
             <h4>$post->username <small> $post->date_created</small></h4>";
     //show delete button if available        
     if($_SESSION['user_id'] == $post->user_id){
-        $postsHTML .= "<form method='post' action='index.php?page=home'>
+        $postsHTML .= "<form method='post' onsubmit='return confirm('Are you sure you want to delete this post?');'>
             <button type='submit' class='pull-right' name='delete'>
                 <input type='hidden' name='post_id' value='$post->post_id' />
                 <span class='glyphicon glyphicon-trash'></span>

@@ -36,7 +36,6 @@ class Post_Table extends Table {
 		$sql = "DELETE FROM posts WHERE post_id = ?";
 		$data = array( $id );
 		$statement = $this->makeStatement( $sql, $data );
-
 	}
 
 	public function searchPosts($field, $keyword){
@@ -47,6 +46,10 @@ class Post_Table extends Table {
 		WHERE p.user_id = u.user_id
 		AND $field LIKE '%$keyword%'";
 		$statement = $this->makeStatement( $sql );
+		if($statement->rowCount() === 0){
+			echo "<div class='alert alert-warning' role='alert'>No posts found.</div>";
+		}
+            
 		return $statement;
 	}
 

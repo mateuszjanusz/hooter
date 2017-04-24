@@ -9,7 +9,7 @@ class User_Table extends Table {
         if ( $statement->rowCount() === 1 ) {
             $out = true;
         } else {
-            $loginProblem = new Exception( "The email or password you entered is incorrect." );
+            $loginProblem = new Exception( "<div class='alert alert-danger' role='alert'>The email or password you entered is incorrect.</div>" );
             throw $loginProblem;
         }
         return $out;
@@ -41,13 +41,13 @@ class User_Table extends Table {
         $this->makeStatement( $sql, $data );
         $statement = $this->makeStatement( $sql, $data );
         if ( $statement->rowCount() === 1 ) {
-            $e = new Exception("Sorry, the email: '$email' is already registered.");
+            $e = new Exception("<div class='alert alert-warning' role='alert'>Sorry, the email: '$email' is already registered.</div>");
             throw $e;
         }
     }
     private function checkPassword ($password, $password_confirm) {
         if($password!=$password_confirm){
-             $e = new Exception("Sorry, your password and confirmation password do not match. Please try again.");
+             $e = new Exception("<div class='alert alert-danger' role='alert'>Sorry, your password and confirmation password do not match. Please try again.</div>");
             throw $e;
         }
     }
@@ -57,7 +57,7 @@ class User_Table extends Table {
         $this->makeStatement( $sql, $data );
         $statement = $this->makeStatement( $sql, $data );
         if ( $statement->rowCount() === 1 ) {
-            $e = new Exception("Sorry, the name: '$username' is already registered.");
+            $e = new Exception("<div class='alert alert-warning' role='alert'>Sorry, the name: '$username' is already registered.</div>");
             throw $e;
         }
     }
