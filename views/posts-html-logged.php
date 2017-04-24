@@ -15,12 +15,14 @@ while ( $post = $posts->fetchObject() ) {
             <h4>$post->username <small> $post->date_created</small></h4>";
     //show delete button if available        
     if($_SESSION['user_id'] == $post->user_id){
-        $postsHTML .= "<form method='post' onsubmit='return confirm('Are you sure you want to delete this post?');'>
+        $postsHTML .= "<form method='post'>
             <button type='submit' class='pull-right' name='delete'>
                 <input type='hidden' name='post_id' value='$post->post_id' />
                 <span class='glyphicon glyphicon-trash'></span>
             </button>
         </form>"; 
+        // $postsHTML .= "<button type='button' class='pull-right' data-toggle='modal' data-target='.bs-example-modal-sm'>
+        // <span class='glyphicon glyphicon-trash'></span></button>";
         $postsHTML .= "<form method='post' action='index.php?page=home'>
             <button type='submit' class='pull-right' name='edit'>
                 <input type='hidden' name='post_id' value='$post->post_id' />
@@ -41,6 +43,20 @@ while ( $post = $posts->fetchObject() ) {
         </li>";         
 }
 $postsHTML .= "</ul>";
+// $postsHTML .= "<div class='modal fade bs-example-modal-sm' tabindex='-1' role='dialog' aria-labelledby='mySmallModalLabel'>
+//               <div class='modal-dialog modal-sm' role='document'>
+//                 <div class='modal-content'>
+//                   Are you sure you want to delete this post?
+//                   <div class='modal-footer'>
+//                   <form method='post'>
+//                      <input type='hidden' name='post_id' value='$post->post_id' />
+//                      <button type='submit' class='btn btn-primary' name='delete'>Yes</button>
+//                   </form>
+//                      <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>
+//                    </div>
+//                 </div>
+//               </div>
+//             </div>";
 
 echo $postsHTML;
 ?>
