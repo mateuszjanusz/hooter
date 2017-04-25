@@ -22,7 +22,7 @@ class User {
 
 	public function logout () {
         $_SESSION['logged_in'] = false;
-        $_SESSION['user_id'] = '';
+        session_destroy();
         header('Location: index.php'); exit(); //redirect to home page
 
 	}
