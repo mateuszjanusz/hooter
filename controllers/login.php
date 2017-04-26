@@ -9,7 +9,9 @@ if( $loginFormSubmitted ) {
     try {
         $userTable->auth( $email, $password );
         $id = $userTable->getUserId($email)->fetchObject()->user_id;
-        $user->login($id);
+        $date = date("m/d/Y");
+        $userTable->addLoggingDate($id, $date);
+        $user->login($id, $email);
     } catch ( Exception $e ) {
         echo $e->getMessage();
     }

@@ -14,6 +14,13 @@ class User_Table extends Table {
         }
         return $out;
     }
+    
+    public function addLoggingDate($id, $date){
+        $sql = "UPDATE users SET last_logged_in = ? WHERE user_id = ?";
+        $data = array($date, $id);
+        $statement2 = $this->makeStatement( $sql, $data );
+        return $date;
+    }
 
     public function getUserId($email){
         $sql = "SELECT user_id FROM users WHERE email = ?";

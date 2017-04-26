@@ -14,14 +14,15 @@ class User {
         return $out;
 	}
 
-	public function login ($id) {
+	public function login ($id, $email) {
         $_SESSION['logged_in'] = true;
         $_SESSION['user_id'] = $id;
+        $_SESSION['user_email'] = $email;
+        $_SESSION['is_first_login'] = false;
         header('Location: index.php'); exit(); //redirect to home page
 	}
 
 	public function logout () {
-        $_SESSION['logged_in'] = false;
         session_destroy();
         header('Location: index.php'); exit(); //redirect to home page
 
