@@ -14,11 +14,11 @@ class User {
         return $out;
 	}
 
-	public function login ($id, $email) {
+	public function login ($id, $username, $is_first) {
         $_SESSION['logged_in'] = true;
         $_SESSION['user_id'] = $id;
-        $_SESSION['user_email'] = $email;
-        $_SESSION['is_first_login'] = false;
+        $_SESSION['username'] = $username;
+        $_SESSION['is_first_login'] = $is_first;
         header('Location: index.php'); exit(); //redirect to home page
 	}
 

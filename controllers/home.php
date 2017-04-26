@@ -1,7 +1,7 @@
 <?php
 if ($user->isLoggedIn()) {
     if(!$_SESSION['is_first_login']){
-        echo "<div class='alert alert-info'>Welcome back " . $_SESSION['user_email'] . "!</div>";
+        echo "<div class='alert alert-info'>Welcome " . $_SESSION['username'] . "!</div>";
         $_SESSION['is_first_login'] = true;
     }
     include_once "controllers/new_post.php";

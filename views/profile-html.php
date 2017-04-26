@@ -3,7 +3,8 @@ $userDetailsFound = isset( $userDetails );
 if ( $userDetailsFound === false ) {
     echo 'no user found' ;
 }
-$userHTML = "<ul id='userDetails'>";
+$userHTML = "<h5> Your profile: </h5>
+<ul id='userDetails'>";
 while ( $user = $userDetails->fetchObject() ) {
 	//create a list element <li> for each of the entries
 	$userHTML .= 
@@ -13,17 +14,18 @@ while ( $user = $userDetails->fetchObject() ) {
                 <input type='hidden' name='post_id' value='$user->location' />
         </div>
         <div class='panel-body'>
-            <p>email: </p><h5>$user->email</h5>
-            <p>joined: </p><h5>$user->date_created</h5>
-            <p>location: </p><h5>$user->location</h5>
-            <p>followers: </p><h5>$user->followers_count</h5>
-            <p>posts: </p><h5>$user->posts_count</h5>
+            <p>email: </p><p>$user->email</p>
+            <p>joined: </p><p>$user->date_created</p>
+            <p>location: </p><p>$user->location</p>
+            <p>followers: </p><p>$user->followers_count</p>
+            <p>posts: </p><p>$user->posts_count</p>
         </div>
      </div>
      
      </li>"; 
 }
-$userHTML .= "</ul>";
+$userHTML .= "</ul>
+<h5> Your posts: </h5>";
 
 echo $userHTML;
 ?>

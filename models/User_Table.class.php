@@ -23,10 +23,10 @@ class User_Table extends Table {
     }
 
     public function getUserId($email){
-        $sql = "SELECT user_id FROM users WHERE email = ?";
+        $sql = "SELECT user_id, username FROM users WHERE email = ?";
         $data = array($email);
-        $id = $this->makeStatement( $sql, $data );
-		return $id;
+        $data = $this->makeStatement( $sql, $data );
+		return $data;
     }
 
 	public function registerUser ( $email, $username, $password, $password_confirm ) {
@@ -87,7 +87,8 @@ class User_Table extends Table {
         $sql = "SELECT p.post_id, p.post_text, p.date_created, p.image, p.reply_id, p.user_id, u.username
 		FROM posts p
 		INNER JOIN users u ON p.user_id
-		WHERE p.user_id = ?
+		WHERE p.user_id = ? 
+        AND p.user_id = u.user_id
 		ORDER BY p.date_created DESC";
         $data = array($id);
         $posts = $this->makeStatement( $sql, $data );

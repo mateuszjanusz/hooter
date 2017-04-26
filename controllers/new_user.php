@@ -13,6 +13,8 @@ if( $registerUser ) {
         $userTable = new User_Table($db);
         try {
             $userTable->registerUser( $newEmail, $newUsername,  $newPassword, $newPasswordConfirm );
+            $id = $userTable->getUserId($newEmail);
+            $user->login($id, $newUsername, true);
             $registerFormMessage = "New user created!";
         } catch ( Exception $e ) {
             $registerFormMessage = $e->getMessage();

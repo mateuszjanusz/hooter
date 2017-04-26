@@ -6,9 +6,8 @@ $out = "
 </a>
   <li role='presentation'><a href='?page=home'>Home</a></li>
   <li role='presentation'><a href='?page=profile'>Profile</a></li>
-  <li role='presentation'><a href='#'>Trends</a></li>
-  <li role='presentation'><a href='?page=logout'>Logout</a></li>
   <li role='presentation'><a href='?page=search'>Search</a></li>
+  <li role='presentation'><a href='?page=logout'>Logout</a></li>
 </ul>";
 
 $out .= "<div class='row'>
