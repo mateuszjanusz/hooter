@@ -12,11 +12,18 @@ while ( $post = $posts->fetchObject() ) {
     $date_created = $post->date_created; //get date when post was created
     $date_created = strtotime($date_created); 
     $difference = intval(($today - $date_created) / 86400); //calculate the difference between these 2 dates
+    if($difference == 0){
+        $difference = 'today';
+    } else if ($difference == 1){
+        $difference .= ' day ago';
+    } else {
+        $difference .= ' days ago';
+    }
 	$postsHTML .=
 	"<li class='list-group-item'><div class='panel panel-default'>
         <div class='panel-heading'>
             <input type='hidden' name='user_id' value='$post->user_id' />
-            <h4>$post->username <small>$difference day(s) ago</small></h4>";
+            <h4>$post->username <small>$difference</small></h4>";
     //show delete button if available        
     if($_SESSION['user_id'] == $post->user_id){
         $postsHTML .= "<form method='post'>
@@ -28,7 +35,7 @@ while ( $post = $posts->fetchObject() ) {
         // $postsHTML .= "<button type='button' class='pull-right' data-toggle='modal' data-target='.bs-example-modal-sm'>
         // <span class='glyphicon glyphicon-trash'></span></button>";
         $postsHTML .= "<form method='post' action='index.php?page=home'>
-            <button type='submit' class='pull-right' name='edit'>
+            <button type='submit' class='pull-right' onClick=addComment(1) name='edit'>
                 <input type='hidden' name='post_id' value='$post->post_id' />
                 <span class='glyphicon glyphicon-pencil'></span>
             </button>

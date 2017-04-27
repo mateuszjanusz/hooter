@@ -9,7 +9,7 @@ $postTable = new Post_Table( $db );
       $keyword = $_POST['keyword'];
       $keyword = strip_tags($keyword);
       if ($keyword == ''){
-        echo "<p>You need to enter a search term!</p>";
+        echo "<div class='alert alert-warning' role='alert'>You need to enter a search term!</div>";
         echo "<a href='?page=search' class='btn btn-default'>Back to search</a>";
         exit;
       }
