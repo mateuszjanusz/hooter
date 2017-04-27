@@ -37,6 +37,7 @@ while ( $post = $posts->fetchObject() ) {
         $postsHTML .= "<form method='post' action='index.php?page=home'>
             <button type='submit' class='pull-right' onClick=addComment(1) name='edit'>
                 <input type='hidden' name='post_id' value='$post->post_id' />
+                <input type='hidden' name='post_text' value='$post->post_text' />
                 <span class='glyphicon glyphicon-pencil'></span>
             </button>
         </form>"; 

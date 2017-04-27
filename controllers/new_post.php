@@ -10,7 +10,6 @@ if ( $postSubmitted ) {
      $entry = $_POST['post'];
      if ($entry == ''){
          echo "<script>emptyPost()</script>"; 
-        //  exit;
      }
      $entry = strip_tags($entry); //remove all HTML, XML, and PHP tags
      $user = $_SESSION['user_id'];
