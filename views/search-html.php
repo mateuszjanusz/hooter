@@ -18,21 +18,44 @@ $postsFound = isset( $posts );
 // }
 
 if ($postsFound){
-    
     $postsHTML = "<ul id='posts'>";
     while ( $post = $posts->fetchObject() ) {
-        //create a list element <li> for each of the entries
-        $postsHTML .=
-        "<li class='list-group-item'><div class='panel panel-default'>
+    	//create a list element <li> for each of the entries
+        $today = time(); //get today date
+        $date_created = $post->date_created; //get date when post was created
+        $date_created = strtotime($date_created); 
+        $difference = intval(($today - $date_created) / 86400); //calculate the difference between these 2 dates
+    	$postsHTML .=
+    	"<li class='list-group-item'><div class='panel panel-default'>
             <div class='panel-heading'>
-                <h4>$post->username <small> $post->date_created</small></h4>";
-                //show delete button only if user is logged in
+                <input type='hidden' name='user_id' value='$post->user_id' />
+                <h4>$post->username <small> $difference</small></h4>";
+        //show delete button if available        
+        if($_SESSION['user_id'] == $post->user_id){
+            $postsHTML .= "<form method='post'>
+                <button type='submit' class='pull-right' name='delete'>
+                    <input type='hidden' name='post_id' value='$post->post_id' />
+                    <span class='glyphicon glyphicon-trash'></span>
+                </button>
+            </form>"; 
+            $postsHTML .= "<form method='post' action='index.php?page=home'>
+                <button type='submit' class='pull-right' name='edit'>
+                    <input type='hidden' name='post_id' value='$post->post_id' />
+                    <span class='glyphicon glyphicon-pencil'></span>
+                </button>
+            </form>"; 
+        }
+        
         $postsHTML .="</div>
                 <div class='panel-body'>
-                    <h5>$post->post_text</h5>
-                </div>
+                    <h5>$post->post_text</h5>";
+        //show image if available
+        if(!is_null($post->image)){
+            $postsHTML .= "<img src='uploads/$post->image' width='400'>";
+        }
+        $postsHTML .= "</div>
             </div>
-            </li>";
+            </li>";         
     }
     $postsHTML .= "</ul>";
 

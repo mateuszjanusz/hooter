@@ -8,11 +8,15 @@ $postsHTML = "<ul id='posts'>";
 while ( $post = $posts->fetchObject() ) {
     //echo var_dump($post);
 	//create a list element <li> for each of the entries
+    $today = time(); //get today date
+    $date_created = $post->date_created; //get date when post was created
+    $date_created = strtotime($date_created); 
+    $difference = intval(($today - $date_created) / 86400); //calculate the difference between these 2 dates
 	$postsHTML .=
 	"<li class='list-group-item'><div class='panel panel-default'>
         <div class='panel-heading'>
             <input type='hidden' name='user_id' value='$post->user_id' />
-            <h4>$post->username <small> $post->date_created</small></h4>";
+            <h4>$post->username <small>$difference day(s) ago</small></h4>";
     //show delete button if available        
     if($_SESSION['user_id'] == $post->user_id){
         $postsHTML .= "<form method='post'>
