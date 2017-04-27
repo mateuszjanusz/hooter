@@ -5,7 +5,6 @@ class Post_Table extends Table {
 		$sql = "INSERT INTO posts (user_id, post_text) VALUES (?, ?)";
 		$formData = array( $user, $entry );
 		$entryStatement = $this->makeStatement( $sql, $formData );
-		// return $this->db->lastInsertId();
 	}
 	public function newPostWithImage($user, $entry, $image) {
 		$sql = "INSERT INTO posts (user_id, post_text, image) VALUES (?, ?, ?)";

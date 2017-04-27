@@ -30,11 +30,9 @@ class User_Table extends Table {
     }
 
 	public function registerUser ( $email, $username, $password, $password_confirm ) {
-
         $this->checkPassword( $password, $password_confirm );
         $this->checkEmail( $email );
         $this->checkUsername( $username );
-
         $sql = "INSERT INTO users ( email, username, password )
                 VALUES( ?, ?, ? )";
 	    $password = SHA1($password);
