@@ -1,9 +1,10 @@
-<?php
+<?php //users posts in user profile
 include_once "models/Post_Table.class.php";
 
 $user_table = new User_Table($db);
 $posts = $user_table->getUserPosts($_SESSION['user_id']);
 
+//check if the button was clicked
 $button_delete= isset( $_POST['delete'] );
 $button_edit = isset( $_POST['edit'] );
 

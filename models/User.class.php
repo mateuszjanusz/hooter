@@ -15,6 +15,7 @@ class User {
 	}
 
 	public function login ($id, $username, $is_first) {
+        //set up session data 
         $_SESSION['logged_in'] = true;
         $_SESSION['user_id'] = $id;
         $_SESSION['username'] = $username;
@@ -23,7 +24,7 @@ class User {
 	}
 
 	public function logout () {
-        session_destroy();
+        session_destroy(); //erase all session data
         header('Location: index.php'); exit(); //redirect to home page
 
 	}

@@ -3,7 +3,7 @@ class User_Table extends Table {
 
     public function auth( $email, $password ){
         $sql = "SELECT email, user_id FROM users WHERE email = ? AND password = ?";
-	      $password = SHA1($password);
+	    $password = SHA1($password); //hash the password
         $data = array($email, $password);
         $statement = $this->makeStatement( $sql, $data );
         if ( $statement->rowCount() === 1 ) {
@@ -15,7 +15,7 @@ class User_Table extends Table {
         return $out;
     }
     
-    public function addLoggingDate($id, $date){
+    public function addLoginDate($id, $date){
         $sql = "UPDATE users SET last_logged_in = ? WHERE user_id = ?";
         $data = array($date, $id);
         $statement2 = $this->makeStatement( $sql, $data );
@@ -35,7 +35,7 @@ class User_Table extends Table {
         $this->checkUsername( $username );
         $sql = "INSERT INTO users ( email, username, password )
                 VALUES( ?, ?, ? )";
-	    $password = SHA1($password);
+	    $password = SHA1($password); //hash the password
         $data= array( $email, $username, $password );
         $this->makeStatement( $sql, $data );
     }
@@ -45,13 +45,13 @@ class User_Table extends Table {
         $data = array( $email );
         $this->makeStatement( $sql, $data );
         $statement = $this->makeStatement( $sql, $data );
-        if ( $statement->rowCount() === 1 ) {
+        if ( $statement->rowCount() === 1 ) { //email found in database
             $e = new Exception("<div class='alert alert-warning' role='alert'>Sorry, the email: '$email' is already registered.</div>");
             throw $e;
         }
     }
     private function checkPassword ($password, $password_confirm) {
-        if($password!=$password_confirm){
+        if($password != $password_confirm){ //check if passwords are equal
              $e = new Exception("<div class='alert alert-danger' role='alert'>Sorry, your password and confirmation password do not match. Please try again.</div>");
             throw $e;
         }

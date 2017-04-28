@@ -7,14 +7,11 @@ $postTable = new Post_Table( $db );
 
     if($search){
       $keyword = $_POST['keyword'];
-      $keyword = strip_tags($keyword);
-      if ($keyword == ''){
+      $keyword = strip_tags($keyword); //remove all html, xml or php tags
+      if ($keyword == ''){ //if search field empty call js function
         echo "<script>emptySearch()</script>";
       }
-      //$keyword = strip_tags($keyword); //remove all html, xml or php tags
-
       $field = $_POST['field'];
-      $field = strip_tags($field);
       $posts = $postTable->searchPosts($field, $keyword);
     };
 

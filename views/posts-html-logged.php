@@ -55,20 +55,6 @@ while ( $post = $posts->fetchObject() ) {
         </li>";         
 }
 $postsHTML .= "</ul>";
-// $postsHTML .= "<div class='modal fade bs-example-modal-sm' tabindex='-1' role='dialog' aria-labelledby='mySmallModalLabel'>
-//               <div class='modal-dialog modal-sm' role='document'>
-//                 <div class='modal-content'>
-//                   Are you sure you want to delete this post?
-//                   <div class='modal-footer'>
-//                   <form method='post'>
-//                      <input type='hidden' name='post_id' value='$post->post_id' />
-//                      <button type='submit' class='btn btn-primary' name='delete'>Yes</button>
-//                   </form>
-//                      <button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button>
-//                    </div>
-//                 </div>
-//               </div>
-//             </div>";
 
 echo $postsHTML;
 ?>

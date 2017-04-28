@@ -5,6 +5,7 @@ include_once "controllers/functions.php";
 $postTable = new Post_Table( $db );
 $posts = $postTable->getAllPosts();
 
+//check if the button was clicked
 $button_delete= isset( $_POST['delete'] );
 $button_edit = isset( $_POST['edit'] );
 

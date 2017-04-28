@@ -1,4 +1,4 @@
-
+//js functions
 function emptyPost() {
     alert("Your post cannot be empty!");
 }

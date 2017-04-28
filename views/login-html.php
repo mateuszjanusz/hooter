@@ -1,5 +1,4 @@
 <?php
-
 $out = "<div id='legend'>
         <legend class=''>Sign in</legend>
       </div>

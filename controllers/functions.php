@@ -1,4 +1,6 @@
 <?php
+//this file includes php functions 
+
     function uploadFile($file){
         $dir = "uploads/";
         //if any error occured

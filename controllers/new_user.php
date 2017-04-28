@@ -15,12 +15,12 @@ if( $registerUser ) {
             $userTable->registerUser( $newEmail, $newUsername,  $newPassword, $newPasswordConfirm );
             $id = $userTable->getUserId($newEmail);
             $user->login($id, $newUsername, true);
-            $registerFormMessage = "New user created!";
+            $registerFormMessage = "<div class='alert alert-info' role='alert'>New user created!</div>";
         } catch ( Exception $e ) {
             $registerFormMessage = $e->getMessage();
         }
-    } else {
-        $registerFormMessage = "Please make sure you enter both an email and a password!";
+    } else { // when input fields are empty display a warning
+        $registerFormMessage = "<div class='alert alert-warning' role='alert'>Please make sure you enter both an email and a password!</div>";
     }
 }
 
