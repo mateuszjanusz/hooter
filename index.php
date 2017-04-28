@@ -1,6 +1,6 @@
 <?php
-	error_reporting( E_ALL );
-	ini_set( "display_errors", 1 );
+	// error_reporting( E_ALL );
+	// ini_set( "display_errors", 1 );
 
 	include_once "./config.php";
 
@@ -19,8 +19,7 @@
 	include_once "models/Table.class.php";
 	include_once "models/User.class.php";
 	$user = new User();
-
-	//nav bar
+	//show suitable navigation bar
 	if (!$user->isLoggedIn() ) {
 		include_once "templates/guest_nav.php";
 	} else {
