@@ -1,4 +1,6 @@
 <?php
+echo '<script>myMap()</script>';
+
 $userDetailsFound = isset( $userDetails );
 if ( $userDetailsFound === false ) {
     echo 'no user found' ;
@@ -16,10 +18,14 @@ while ( $user = $userDetails->fetchObject() ) {
         <div class='panel-body'>
             <h5><small>email:   </small>$user->email</h5>
             <h5><small>joined:  </small>$date_joined</h5>
-            <h5><small>location:    </small>$user->location</h5>
             <h5><small>followers:   </small>$user->followers_count</h5>
             <h5><small>posts:   </small>$user->posts_count</h5>
+            <h5><small>location:    </small>$user->location</h5>
         </div>
+        <div class='panel-footer'>
+            <div id='googleMap' style='width:100%;height:200px;'>
+        </div>
+</div>
      </div>
      
      </li>"; 
@@ -28,4 +34,6 @@ $userHTML .= "</ul>
 <h5> Your posts: </h5>";
 
 echo $userHTML;
+
+include_once "controllers/user_posts.php";
 ?>

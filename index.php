@@ -13,8 +13,7 @@
 
 	$title = "Hooter";
 	$css="css/bootstrap.min.css";
-	// $bootstrap_js="js/bootstrap.min.js";
-	$js="js/functions.js";
+
 	include_once "templates/header.php";
 	include_once "models/Table.class.php";
 	include_once "models/User.class.php";
